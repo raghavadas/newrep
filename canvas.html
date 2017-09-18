@@ -1,0 +1,10 @@
+<script>
+    function Rectangle(){
+        var canv1=document.getElementById("canv1");
+        var context=canv1.getContext('2d');
+        context.fillStyle='RED';
+        context.fillRect(25,10,150,80);
+    }
+    </script>
+<button onclick="Rectangle()">Rectangle</button>
+<canvas style="border:2px solid blue " id="canv1"></canvas>

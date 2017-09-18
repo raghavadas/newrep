@@ -1,0 +1,90 @@
+<script>
+   function loadimg(a){
+        if(a=="idli") {document.getElementById("span5").innerHTML="<img src=idli.jpg>"}
+        if(a=="dosa") {document.getElementById("span5").innerHTML="<img src=dosa.jpg>"}
+        if(a=="vada") {document.getElementById("span5").innerHTML="<img src=vada.jpg>"}
+        if(a=="upma") {document.getElementById("span5").innerHTML="<img src=upma.jpg>"}
+    }
+    var price,food;
+    function total(item){
+       
+        food=item;
+        if(item=="idli") price=20;
+        else if(item=="upma") price=30;
+        else if(item=="dosa") price=40;
+        else if(item=="vada") price=10;
+        
+        document.getElementById("span1").innerHTML=price;
+    }
+    function quantity(q){
+     
+        if (q=="one")
+        price=price*1;
+       else if (q=="two")
+       price=price*2;
+        else if (q=="three")
+        price=price*3;
+
+        document.getElementById("span1").innerHTML=p;
+    }
+    function PaymentMethod(a){
+            if(a=="4"){ price+=(price*0.1);}
+          else  if(a=="5"){ price+=(pr ice*0.3);}
+          else  if(a=="6"){ price+=(price*0.5);}
+            document.getElementById("span2").innerHTML=price;       
+    }
+    function ddc(d){
+    if(d=="1") price+=40;
+    document.getElementById("span4").innerHTML="40";
+    }
+    function display(){
+        
+       
+        document.getElementById("span3").innerHTML=food+ " <br>" + price;   
+    }
+</script>
+<form onsubmit="return false;">
+    <h1>Product Bill</h1><br><br>
+    <fieldset>
+    <legend> Delecacies</legend>
+    <select name="select" value="-1" onchange="total(this.value),loadimg(this.value)"  >
+    <option selected value="-1" >select</option>
+    <option  value="idli">idli</option>
+    <option  value="dosa" >dosa</option>
+    <option  value="vada">vada</option>
+    <option  value="upma">upma</option>
+    </select>
+    <span id="span5"></span>
+   </fieldset> 
+    
+   
+    <br><br>
+    <fieldset>
+    <legend>Quantity:</legend>
+    
+    <input type="radio" id="1"onclick="quantity(this.value)" value="one" name="food" >one
+    <input type="radio" id="2" onclick="quantity(this.value)" value="two" name="food">two
+    <input type="radio" id="3" onclick="quantity(this.value)" value="three" name="food">three
+    <br><br>
+    price:<span id="span1"></span>
+    </fieldset>
+    <br><br>
+    <br><br><br>
+    <fieldset>
+    <legend>Payment Mode:</legend>
+    
+    <input type="radio" id="cash" onclick="PaymentMethod(this.value) " value="4" name="pay">cash
+    <input type="radio" id="card" onclick="PaymentMethod(this.value)"  value="5" name="pay">card
+    <input type="radio" id="Paytm" onclick="PaymentMethod(this.value)" value="6" name="pay">Paytm
+    <br><br>
+    Payment charges:
+    <span id="span2"></span>
+    </fieldset>
+    <br><br>
+    
+    
+    <input type="checkbox" value="1" id="dd1" onclick="ddc(this.value)"/>Door Delivery charges:<span id="span4" ></span><br>
+    <input type="Submit" value="submit" onclick="display()"><br><br>
+  
+</form>
+Summary: <span id="span3" ></span>
